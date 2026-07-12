@@ -146,12 +146,27 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
 .hero{position:relative;background:var(--navy-deep);color:var(--white);overflow:hidden}
 .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:46px 46px;pointer-events:none;-webkit-mask-image:radial-gradient(120% 120% at 20% 10%,#000 40%,transparent 88%);mask-image:radial-gradient(120% 120% at 20% 10%,#000 40%,transparent 88%)}
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(720px 520px at 88% -5%,rgba(255,225,105,.1),transparent 62%),linear-gradient(180deg,transparent 55%,rgba(15,13,45,.35))}
+.hero-schematic{position:absolute;top:54%;left:clamp(-96px,-3vw,-48px);transform:translateY(-42%);width:min(600px,44vw);color:var(--gold);opacity:.15;pointer-events:none;z-index:0;-webkit-mask-image:radial-gradient(78% 78% at 42% 48%,#000 52%,transparent 100%);mask-image:radial-gradient(78% 78% at 42% 48%,#000 52%,transparent 100%)}
+.hero-schematic svg{width:100%;height:auto;display:block}
+.js:not(.reduced-motion) .hero-schematic g{opacity:0;animation:sc-in .9s var(--ease) forwards}
+.js:not(.reduced-motion) .hero-schematic .sc-hood{animation-delay:.15s}
+.js:not(.reduced-motion) .hero-schematic .sc-baffle{animation-delay:.3s}
+.js:not(.reduced-motion) .hero-schematic .sc-duct{animation-delay:.42s}
+.js:not(.reduced-motion) .hero-schematic .sc-fan{animation-delay:.52s}
+.js:not(.reduced-motion) .hero-schematic .sc-range{animation-delay:.24s}
+.js:not(.reduced-motion) .hero-schematic .sc-air{animation-delay:.7s}
+.js:not(.reduced-motion) .hero-schematic .sc-dim{animation-delay:.62s}
+@keyframes sc-in{to{opacity:1}}
+.js:not(.reduced-motion) .hero-anim{opacity:0;animation:heroRise .82s var(--ease) both;animation-delay:calc(var(--d,0)*1ms)}
+@keyframes heroRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:var(--s11);align-items:start;padding-block:var(--s11) var(--s12)}
 .hero-text{min-width:0;padding-top:var(--s2)}
 .hero-badge{display:inline-flex;align-items:center;gap:var(--s3);max-width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);padding:8px 16px;border-radius:100px;font-size:.88rem;margin-bottom:var(--s6)}
 .hero-badge .stars{flex-shrink:0;color:var(--gold);letter-spacing:2px}
 .hero h1{color:var(--white);margin-bottom:var(--s5)}
 .hero h1 em{font-style:normal;color:var(--gold)}
+.js:not(.reduced-motion) .hero h1 em{background:linear-gradient(100deg,var(--gold) 42%,#fff7d4 50%,var(--gold) 58%);background-size:260% 100%;background-position:130% 0;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent;animation:polish 1.5s var(--ease) 1.15s 1 both}
+@keyframes polish{from{background-position:130% 0}to{background-position:-30% 0}}
 .hero .lead{color:rgba(255,255,255,.82);margin-bottom:var(--s7)}
 .hero-actions{display:flex;flex-wrap:wrap;gap:var(--s4);margin-bottom:var(--s7)}
 .hero-trust{display:flex;flex-wrap:wrap;gap:var(--s3) var(--s6)}
@@ -187,6 +202,21 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
 .marquee-sep{color:var(--navy);opacity:.5;padding:0 2px}
 @keyframes marquee-scroll{to{transform:translateX(-50%)}}
 
+/* ============================================================= PROOF BAND */
+.proof{background:var(--navy);color:#fff;padding:var(--s12) 0;position:relative;overflow:hidden}
+.proof::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(680px 340px at 12% -10%,rgba(255,225,105,.09),transparent 62%)}
+.proof .container{position:relative;z-index:1}
+.proof-head{text-align:center;margin-bottom:var(--s9)}
+.proof-head .eyebrow{background:rgba(255,225,105,.15);color:var(--gold)}
+.proof-line{margin-top:var(--s4);color:rgba(255,255,255,.7);font-size:1.05rem}
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{text-align:center;padding:6px var(--s5);position:relative}
+.stat + .stat::before{content:"";position:absolute;left:0;top:14%;height:72%;width:1px;background:linear-gradient(180deg,transparent,rgba(255,255,255,.16),transparent)}
+.stat-num{font-family:var(--font-display);font-weight:800;font-size:clamp(2.9rem,5.6vw,4.6rem);line-height:.92;color:var(--gold);letter-spacing:.005em;font-variant-numeric:tabular-nums lining-nums}
+.stat-label{margin-top:12px;font-size:.95rem;line-height:1.4;color:rgba(255,255,255,.72);max-width:14rem;margin-inline:auto}
+@media (max-width:820px){.proof-grid{grid-template-columns:1fr 1fr;row-gap:var(--s9)}.stat:nth-child(3)::before{display:none}}
+@media (max-width:460px){.proof{padding:var(--s10) 0}.proof-grid{grid-template-columns:1fr;row-gap:var(--s7)}.stat::before{display:none}.stat-num{font-size:clamp(2.6rem,15vw,3.4rem)}}
+
 /* ============================================================= REVIEWS */
 .reviews-google{display:inline-flex;flex-direction:column;align-items:center;gap:6px;margin-top:var(--s6);transition:transform .2s var(--ease)}
 .reviews-google:hover{transform:translateY(-2px)}
@@ -203,6 +233,20 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
 .review-avatar{width:46px;height:46px;border-radius:50%;background:var(--navy);color:var(--gold);display:grid;place-items:center;font-weight:700;font-size:.95rem;flex-shrink:0}
 .review-author .name{font-weight:600;color:var(--navy);font-size:.98rem}
 .review-author .role{font-size:.875rem;color:var(--muted)}
+.reviews-layout{display:grid;grid-template-columns:1.12fr .88fr;gap:var(--s6);align-items:stretch}
+.reviews-side{display:grid;gap:var(--s6)}
+.review--feature{background:var(--navy);border:0;color:#fff;position:relative;overflow:hidden;padding:var(--s8) var(--s8) var(--s7);justify-content:center}
+.review--feature::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(420px 260px at 92% 8%,rgba(255,225,105,.12),transparent 62%)}
+.review--feature:hover{transform:translateY(-5px);box-shadow:0 26px 46px -24px rgba(27,24,72,.5)}
+.review--feature > *{position:relative;z-index:1}
+.review--feature .quote-mark{font-family:var(--font-display);font-weight:800;font-size:6rem;line-height:1;color:var(--gold);opacity:.55;display:block;height:.62em;margin-bottom:var(--s2)}
+.review--feature .stars{color:var(--gold)}
+.review--feature p{color:#fff;font-size:1.4rem;line-height:1.42;font-weight:400;margin-bottom:var(--s7)}
+.review--feature .review-avatar{background:var(--gold);color:var(--navy);width:52px;height:52px;font-size:1.02rem}
+.review--feature .review-author .name{color:#fff;font-size:1.05rem}
+.review--feature .review-author .role{color:rgba(255,255,255,.72)}
+@media (max-width:900px){.reviews-layout{grid-template-columns:1fr}.reviews-side{grid-template-columns:1fr 1fr}.review--feature p{font-size:1.25rem}}
+@media (max-width:620px){.reviews-side{grid-template-columns:1fr}.review--feature{padding:var(--s7) var(--s6)}.review--feature p{font-size:1.15rem}}
 
 /* ============================================================= ABOUT / FEATURES */
 .about-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:var(--s10);align-items:start}
@@ -214,10 +258,16 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
 .feature-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}
 .feature-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s6);box-shadow:var(--shadow-sm);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
 .feature-card:hover{transform:translateY(-4px);box-shadow:0 18px 34px -22px rgba(27,24,72,.3)}
-.feature-icon{width:50px;height:50px;display:grid;place-items:center;background:var(--gold-deep);color:var(--navy);border-radius:var(--r-sm);margin-bottom:var(--s4);box-shadow:inset 0 0 0 1px rgba(38,34,98,.1)}
+.feature-icon{width:50px;height:50px;display:grid;place-items:center;background:var(--gold-deep);color:var(--navy);border-radius:var(--r-sm);margin-bottom:var(--s4);box-shadow:inset 0 0 0 1px rgba(38,34,98,.1);transition:background .25s var(--ease),transform .25s var(--ease)}
 .feature-icon svg{width:24px;height:24px}
+.feature-card:hover .feature-icon{background:var(--gold);transform:scale(1.07)}
 .feature-card h3{font-size:1.12rem;margin-bottom:6px}
 .feature-card p{font-size:.9375rem;color:var(--muted);line-height:1.55}
+.feature-card--accent{background:var(--navy);border-color:transparent;box-shadow:var(--shadow-md)}
+.feature-card--accent:hover{box-shadow:0 22px 40px -22px rgba(27,24,72,.5)}
+.feature-card--accent h3{color:#fff}
+.feature-card--accent p{color:rgba(255,255,255,.72)}
+.feature-card--accent .feature-icon{background:var(--gold);box-shadow:none}
 
 /* ============================================================= STEPS */
 .steps{display:flex;align-items:stretch;gap:var(--s6)}
@@ -596,26 +646,62 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
   <span id="top"></span>
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-schematic" aria-hidden="true">
+      <svg viewBox="0 0 520 560" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <g class="sc-fan" stroke-opacity=".9">
+          <rect x="226" y="24" width="68" height="42" rx="3"/>
+          <path d="M236 66v9h48v-9"/>
+          <circle cx="260" cy="45" r="14"/>
+          <path d="M260 45l10-6M260 45l-10 6M260 45l6 10M260 45l-6-10"/>
+        </g>
+        <g class="sc-duct" stroke-opacity=".72">
+          <path d="M244 75v103M276 75v103"/>
+          <path d="M244 116h32" stroke-dasharray="3 7"/>
+        </g>
+        <g class="sc-hood" stroke-opacity="1">
+          <path d="M186 178h148l94 130H92z"/>
+          <path d="M104 292h312"/>
+        </g>
+        <g class="sc-baffle" stroke-opacity=".62">
+          <path d="M150 292l15-22 15 22 15-22 15 22 15-22 15 22 15-22 15 22 15-22 15 22 15-22 15 22"/>
+        </g>
+        <g class="sc-range" stroke-opacity=".85">
+          <path d="M138 432h244M152 432v16h216v-16"/>
+          <circle cx="198" cy="432" r="12"/>
+          <circle cx="260" cy="432" r="12"/>
+          <circle cx="322" cy="432" r="12"/>
+        </g>
+        <g class="sc-air" stroke-opacity=".5" stroke-dasharray="2 8">
+          <path d="M198 420C198 384 178 352 178 318"/>
+          <path d="M260 420C260 384 260 352 260 318"/>
+          <path d="M322 420C322 384 342 352 342 318"/>
+        </g>
+        <g class="sc-dim" stroke-opacity=".38" stroke-width="1">
+          <path d="M64 178v130M59 178h10M59 308h10"/>
+          <path d="M456 178v130" stroke-dasharray="2 7"/>
+        </g>
+      </svg>
+    </div>
     <div class="container">
       <div class="hero-text">
-        <div class="hero-badge">
+        <div class="hero-badge hero-anim" style="--d:0">
           <span class="stars" role="img" aria-label="Rated 5 out of 5">★★★★★</span>
           <span>Trusted by 500+ commercial kitchens</span>
         </div>
-        <h1 id="hero-title">Hood cleaning you can <em>count on.</em></h1>
-        <p class="lead">Our mission is to raise the standard for hood cleaning through superior service and unmatched attention to detail — clear communication and consistent results on every single job.</p>
-        <div class="hero-actions">
+        <h1 id="hero-title" class="hero-anim" style="--d:90">Hood cleaning you can <em>count on.</em></h1>
+        <p class="lead hero-anim" style="--d:210">Our mission is to raise the standard for hood cleaning through superior service and unmatched attention to detail — clear communication and consistent results on every single job.</p>
+        <div class="hero-actions hero-anim" style="--d:320">
           <a href="#quote" class="btn btn--gold btn--lg" data-focus="h-name">Book a Free Quote</a>
           <a href="tel:+15551234567" class="btn btn--ghost btn--lg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call (555) 123-4567</a>
         </div>
-        <ul class="hero-trust">
+        <ul class="hero-trust hero-anim" style="--d:430">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Licensed &amp; Insured</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>NFPA 96 Certified</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Photo-Documented</li>
         </ul>
       </div>
 
-      <div class="hero-card" id="quote">
+      <div class="hero-card hero-anim" id="quote" style="--d:260">
         <h2 class="hero-card-title">Get your free quote</h2>
         <p class="hero-card-trust">Reply within 1 business hour · No obligation · NFPA 96 certified</p>
         <form aria-label="Request a free quote" data-form="hero">
@@ -671,6 +757,22 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
     </div>
   </div>
 
+  <!-- PROOF / BY THE NUMBERS -->
+  <section class="proof" aria-label="Lamb Hood Cleaning by the numbers">
+    <div class="container">
+      <div class="proof-head">
+        <span class="eyebrow">By the numbers</span>
+        <p class="proof-line">Proof, not promises — the record behind the name.</p>
+      </div>
+      <div class="proof-grid" id="proofGrid">
+        <div class="stat"><div class="stat-num"><span class="count" data-count="500" data-suffix="+">500+</span></div><div class="stat-label">Commercial kitchens cleaned</div></div>
+        <div class="stat"><div class="stat-num"><span class="count" data-count="100" data-suffix="%">100%</span></div><div class="stat-label">Inspection pass rate</div></div>
+        <div class="stat"><div class="stat-num">1&nbsp;hr</div><div class="stat-label">Typical quote response</div></div>
+        <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Emergency availability</div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- REVIEWS -->
   <section class="section section--tight" id="reviews" aria-labelledby="reviews-title">
     <div class="container">
@@ -683,22 +785,25 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
           <span class="g-meta"><span class="g-stars" aria-hidden="true">★★★★★</span><span><b>5.0</b> · 40+ Google reviews</span></span>
         </a>
       </div>
-      <div class="reviews-grid">
-        <article class="review reveal" style="--i:0">
+      <div class="reviews-layout">
+        <article class="review review--feature reveal">
+          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
           <div class="stars" role="img" aria-label="Rated 5 out of 5"><span aria-hidden="true">★★★★★</span></div>
-          <p>"Booking was effortless and the crew showed up right on time. They sent before-and-after photos and a compliance certificate the same day. Our inspector had zero notes."</p>
-          <div class="review-author"><div class="review-avatar" aria-hidden="true">ST</div><div><div class="name">Sarah Thompson</div><div class="role">Restaurant Owner</div></div></div>
-        </article>
-        <article class="review reveal" style="--i:1">
-          <div class="stars" role="img" aria-label="Rated 5 out of 5"><span aria-hidden="true">★★★★★</span></div>
-          <p>"We run five locations and Lamb keeps every one of them on schedule. Clear communication, honest pricing, and the reminders mean we never miss a required cleaning."</p>
-          <div class="review-author"><div class="review-avatar" aria-hidden="true">EJ</div><div><div class="name">Emily Johnson</div><div class="role">Operations Manager</div></div></div>
-        </article>
-        <article class="review reveal" style="--i:2">
-          <div class="stars" role="img" aria-label="Rated 5 out of 5"><span aria-hidden="true">★★★★★</span></div>
-          <p>"Our old company left a mess and cut corners. Lamb cleaned to bare metal, protected the kitchen, and left everything spotless. Genuinely the best we've worked with."</p>
+          <p>Our old company left a mess and cut corners. Lamb cleaned to bare metal, protected the kitchen, and left everything spotless. Genuinely the best we&rsquo;ve worked with.</p>
           <div class="review-author"><div class="review-avatar" aria-hidden="true">MC</div><div><div class="name">Michael Carter</div><div class="role">Executive Chef</div></div></div>
         </article>
+        <div class="reviews-side">
+          <article class="review reveal" style="--i:1">
+            <div class="stars" role="img" aria-label="Rated 5 out of 5"><span aria-hidden="true">★★★★★</span></div>
+            <p>"Booking was effortless and the crew showed up right on time. They sent before-and-after photos and a compliance certificate the same day. Our inspector had zero notes."</p>
+            <div class="review-author"><div class="review-avatar" aria-hidden="true">ST</div><div><div class="name">Sarah Thompson</div><div class="role">Restaurant Owner</div></div></div>
+          </article>
+          <article class="review reveal" style="--i:2">
+            <div class="stars" role="img" aria-label="Rated 5 out of 5"><span aria-hidden="true">★★★★★</span></div>
+            <p>"We run five locations and Lamb keeps every one on schedule. Clear communication, honest pricing, and reminders mean we never miss a required cleaning."</p>
+            <div class="review-author"><div class="review-avatar" aria-hidden="true">EJ</div><div><div class="name">Emily Johnson</div><div class="role">Operations Manager</div></div></div>
+          </article>
+        </div>
       </div>
     </div>
   </section>
@@ -721,7 +826,7 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
           <a href="#contact" class="btn btn--navy btn--lg">Get in Touch</a>
         </div>
         <div class="feature-cards">
-          <div class="feature-card reveal" style="--i:0">
+          <div class="feature-card feature-card--accent reveal" style="--i:0">
             <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div>
             <h3>Proven Compliance</h3>
             <p>NFPA 96 certified cleanings with full photo documentation on every visit.</p>
@@ -1016,6 +1121,31 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
         entries.forEach(function (en) { if (en.isIntersecting) { steps.classList.add('draw'); obs.disconnect(); } });
       }, { threshold: 0.35 });
       stepObs.observe(steps);
+    }
+
+    /* Count-up stats */
+    var counts = document.querySelectorAll('.count');
+    if (counts.length) {
+      var cObs = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          obs.unobserve(en.target);
+          var el = en.target;
+          var target = parseInt(el.getAttribute('data-count'), 10) || 0;
+          var suffix = el.getAttribute('data-suffix') || '';
+          var dur = 1500, start = null;
+          el.textContent = '0' + suffix;
+          function tick(ts) {
+            if (start === null) start = ts;
+            var p = Math.min((ts - start) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = Math.round(eased * target) + suffix;
+            if (p < 1) requestAnimationFrame(tick); else el.textContent = target + suffix;
+          }
+          requestAnimationFrame(tick);
+        });
+      }, { threshold: 0.5 });
+      counts.forEach(function (c) { cObs.observe(c); });
     }
   }
 
