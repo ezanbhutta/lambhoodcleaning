@@ -263,11 +263,6 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
 .feature-card:hover .feature-icon{background:var(--gold);transform:scale(1.07)}
 .feature-card h3{font-size:1.12rem;margin-bottom:6px}
 .feature-card p{font-size:.9375rem;color:var(--muted);line-height:1.55}
-.feature-card--accent{background:var(--navy);border-color:transparent;box-shadow:var(--shadow-md)}
-.feature-card--accent:hover{box-shadow:0 22px 40px -22px rgba(27,24,72,.5)}
-.feature-card--accent h3{color:#fff}
-.feature-card--accent p{color:rgba(255,255,255,.72)}
-.feature-card--accent .feature-icon{background:var(--gold);box-shadow:none}
 
 /* ============================================================= STEPS */
 .steps{display:flex;align-items:stretch;gap:var(--s6)}
@@ -308,7 +303,7 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
 
 /* ============================================================= CONTACT */
 .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--s10);align-items:start}
-.contact-info{position:sticky;top:var(--s14)}
+.contact-info{align-self:start}
 .contact-info .info-item{display:flex;gap:var(--s4);align-items:flex-start;padding:var(--s6) 0;border-bottom:1px solid var(--line)}
 .contact-info .info-item:first-child{padding-top:0}
 .contact-info .info-item:last-child{border-bottom:0}
@@ -826,7 +821,7 @@ h4{font-size:1.05rem;line-height:1.15;letter-spacing:.02em;font-weight:700}
           <a href="#contact" class="btn btn--navy btn--lg">Get in Touch</a>
         </div>
         <div class="feature-cards">
-          <div class="feature-card feature-card--accent reveal" style="--i:0">
+          <div class="feature-card reveal" style="--i:0">
             <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 4 5v6c0 5 3.5 9 8 11 4.5-2 8-6 8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div>
             <h3>Proven Compliance</h3>
             <p>NFPA 96 certified cleanings with full photo documentation on every visit.</p>
