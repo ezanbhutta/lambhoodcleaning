@@ -49,7 +49,7 @@
 }
 *,*::before,*::after{box-sizing:border-box}
 *{margin:0;padding:0}
-html{scroll-padding-top:104px;-webkit-text-size-adjust:100%;overflow-x:clip}
+html{scroll-padding-top:88px;-webkit-text-size-adjust:100%;overflow-x:clip}
 body{font-family:var(--font);color:var(--ink);background:var(--white);line-height:1.55;font-size:17px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
@@ -142,19 +142,9 @@ h4{font-size:1.02rem;line-height:1.2;letter-spacing:-.002em;font-weight:700}
 
 /* ============================================================= HERO */
 .hero{position:relative;background:var(--navy-deep);color:var(--white);overflow:hidden}
-.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:46px 46px;pointer-events:none;-webkit-mask-image:radial-gradient(120% 120% at 20% 10%,#000 40%,transparent 88%);mask-image:radial-gradient(120% 120% at 20% 10%,#000 40%,transparent 88%)}
+
 .hero::after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(720px 520px at 88% -5%,rgba(255,171,115,.1),transparent 62%),linear-gradient(180deg,transparent 55%,rgba(15,13,45,.35))}
-.hero-schematic{position:absolute;top:54%;left:clamp(-96px,-3vw,-48px);transform:translateY(-42%);width:min(600px,44vw);color:var(--gold);opacity:.15;pointer-events:none;z-index:0;-webkit-mask-image:radial-gradient(78% 78% at 42% 48%,#000 52%,transparent 100%);mask-image:radial-gradient(78% 78% at 42% 48%,#000 52%,transparent 100%)}
-.hero-schematic svg{width:100%;height:auto;display:block}
-.js:not(.reduced-motion) .hero-schematic g{opacity:0;animation:sc-in .9s var(--ease) forwards}
-.js:not(.reduced-motion) .hero-schematic .sc-hood{animation-delay:.15s}
-.js:not(.reduced-motion) .hero-schematic .sc-baffle{animation-delay:.3s}
-.js:not(.reduced-motion) .hero-schematic .sc-duct{animation-delay:.42s}
-.js:not(.reduced-motion) .hero-schematic .sc-fan{animation-delay:.52s}
-.js:not(.reduced-motion) .hero-schematic .sc-range{animation-delay:.24s}
-.js:not(.reduced-motion) .hero-schematic .sc-air{animation-delay:.7s}
-.js:not(.reduced-motion) .hero-schematic .sc-dim{animation-delay:.62s}
-@keyframes sc-in{to{opacity:1}}
+
 .js:not(.reduced-motion) .hero-anim{opacity:0;animation:heroRise .82s var(--ease) both;animation-delay:calc(var(--d,0)*1ms)}
 @keyframes heroRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:1.1fr .9fr;gap:var(--s11);align-items:start;padding-block:var(--s11) var(--s12)}
@@ -597,25 +587,6 @@ h4{font-size:1.02rem;line-height:1.2;letter-spacing:-.002em;font-weight:700}
 </symbol>
 </svg>
 
-<div class="topbar">
-    <div class="container">
-      <div class="topbar-left">
-        <span class="hours">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-          Mon–Sat, 7am–9pm
-        </span>
-        <span class="topbar-badge">
-          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m13 2-9 12h7l-1 8 9-12h-7z"/></svg>
-          24/7 Emergency Service
-        </span>
-      </div>
-      <div class="topbar-right">
-        <a href="tel:+15551234567"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.35 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/></svg>(555) 123-4567</a>
-        <a class="email" href="mailto:hello@lambhoodcleaning.com"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg>hello@lambhoodcleaning.com</a>
-      </div>
-    </div>
-</div>
-
 <header class="nav" id="nav">
     <div class="container">
       <a class="nav-logo" href="#top" aria-label="Lamb Hood Cleaning — home">
@@ -639,42 +610,6 @@ h4{font-size:1.02rem;line-height:1.2;letter-spacing:-.002em;font-weight:700}
   <span id="top"></span>
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-title">
-    <div class="hero-schematic" aria-hidden="true">
-      <svg viewBox="0 0 520 560" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-        <g class="sc-fan" stroke-opacity=".9">
-          <rect x="226" y="24" width="68" height="42" rx="3"/>
-          <path d="M236 66v9h48v-9"/>
-          <circle cx="260" cy="45" r="14"/>
-          <path d="M260 45l10-6M260 45l-10 6M260 45l6 10M260 45l-6-10"/>
-        </g>
-        <g class="sc-duct" stroke-opacity=".72">
-          <path d="M244 75v103M276 75v103"/>
-          <path d="M244 116h32" stroke-dasharray="3 7"/>
-        </g>
-        <g class="sc-hood" stroke-opacity="1">
-          <path d="M186 178h148l94 130H92z"/>
-          <path d="M104 292h312"/>
-        </g>
-        <g class="sc-baffle" stroke-opacity=".62">
-          <path d="M150 292l15-22 15 22 15-22 15 22 15-22 15 22 15-22 15 22 15-22 15 22 15-22 15 22"/>
-        </g>
-        <g class="sc-range" stroke-opacity=".85">
-          <path d="M138 432h244M152 432v16h216v-16"/>
-          <circle cx="198" cy="432" r="12"/>
-          <circle cx="260" cy="432" r="12"/>
-          <circle cx="322" cy="432" r="12"/>
-        </g>
-        <g class="sc-air" stroke-opacity=".5" stroke-dasharray="2 8">
-          <path d="M198 420C198 384 178 352 178 318"/>
-          <path d="M260 420C260 384 260 352 260 318"/>
-          <path d="M322 420C322 384 342 352 342 318"/>
-        </g>
-        <g class="sc-dim" stroke-opacity=".38" stroke-width="1">
-          <path d="M64 178v130M59 178h10M59 308h10"/>
-          <path d="M456 178v130" stroke-dasharray="2 7"/>
-        </g>
-      </svg>
-    </div>
     <div class="container">
       <div class="hero-text">
         <div class="hero-badge hero-anim" style="--d:0">
